@@ -29,7 +29,6 @@
             <div class="qty-box">
                 Qty: <input type="number" id="qty-white" value="1" min="1" max="10">
             </div>
-            <!-- We pass 'qty-white' so the script knows which box to read -->
             <button class="add-btn" onclick="addToBasket('Classic White', 20, 'qty-white')">Add to Basket</button>
         </div>
 
@@ -44,42 +43,65 @@
             <button class="add-btn" onclick="addToBasket('Midnight Black', 25, 'qty-black')">Add to Basket</button>
         </div>
 
-
-        <!-- Black T-Shirt -->
+        <!-- Navy Blue T-Shirt (Fixed Name and IDs) -->
         <div class="card">
-            <img src="media/navy_blue_tshirt.jpg" alt="Black T-Shirt">
-            <h3>Midnight Black</h3>
-            <p>£25.00</p>
+            <img src="media/navy_blue_tshirt.jpg" alt="Navy Blue T-Shirt">
+            <h3>Navy Blue</h3>
+            <p>£22.00</p>
             <div class="qty-box">
-                Qty: <input type="number" id="qty-black" value="1" min="1" max="10">
+                Qty: <input type="number" id="qty-navy" value="1" min="1" max="10">
             </div>
-            <button class="add-btn" onclick="addToBasket('Midnight Black', 25, 'qty-black')">Add to Basket</button>
+            <button class="add-btn" onclick="addToBasket('Navy Blue', 22, 'qty-navy')">Add to Basket</button>
         </div>
     </div>
+
 
 
     <script>
         let itemCount = 0;
         let totalPrice = 0;
 
-        function addToBasket(name, price) {
-            let response = confirm("Add " + name + " to your basket for £" + price + "?");
+        function addToBasket(name, price, qtyId) {
+            // 1. Grab the input element using the passed ID
+            const qtyInput = document.getElementById(qtyId);
+
+            // 2. Get the actual number from the input
+            const quantity = parseInt(qtyInput.value);
+
+            // 3. Validation
+            if (isNaN(quantity) || quantity < 1) {
+                alert("Please enter a valid quantity.");
+                return;
+            }
+
+            const subTotal = price * quantity;
+
+            // 4. Confirmation with Quantity
+            let response = confirm(`Add ${quantity}x ${name} to your basket for £${subTotal.toFixed(2)}?`);
 
             if (response) {
-                // Update the math
-                itemCount++;
-                totalPrice += price;
+                // Update global math
+                itemCount += quantity;
+                totalPrice += subTotal;
 
-                // Update the screen
+                // Update the UI
                 document.getElementById('basket-count').innerText = itemCount;
                 document.getElementById('total-price').innerText = totalPrice.toFixed(2);
 
-                console.log(`Added ${name}. Basket total is now £${totalPrice}`);
+                console.log(`Added ${quantity} ${name}. Total items: ${itemCount}`);
+
+                // Reset input to 1
+                qtyInput.value = 1;
             }
         }
 
         function clearBasket() {
-            if (itemCount > 0 && confirm("Empty your basket?")) {
+            if (itemCount === 0) {
+                alert("Your basket is already empty!");
+                return;
+            }
+
+            if (confirm("Are you sure you want to empty your basket?")) {
                 itemCount = 0;
                 totalPrice = 0;
                 document.getElementById('basket-count').innerText = "0";
@@ -87,6 +109,7 @@
             }
         }
     </script>
+
 
 </body>
 
