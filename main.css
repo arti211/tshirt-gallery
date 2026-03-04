@@ -1,0 +1,132 @@
+/* CSS: Basic Layout */
+body {
+    font-family: cursive;
+    text-align: center;
+    background-color: #1a1a1acc;
+    /* Slightly darker for better contrast */
+    color: white;
+    margin: 0;
+    padding-top: 80px;
+    /* Space for fixed basket */
+}
+
+.gallery {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 20px;
+}
+
+.card {
+    background: white;
+    color: #333;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    transition: 0.3s;
+    width: 250px;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.4);
+}
+
+img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+h3 {
+    margin: 15px 0 5px;
+}
+
+p {
+    font-weight: bold;
+    color: #2ecc71;
+    font-size: 1.2em;
+    margin: 5px 0;
+}
+
+.qty-box {
+    margin: 15px 0;
+    font-family: sans-serif;
+    /* Keep inputs readable */
+}
+
+.qty-box input {
+    width: 50px;
+    padding: 5px;
+    text-align: center;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
+
+.add-btn {
+    background-color: #2ecc71;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+    font-family: cursive;
+}
+
+.add-btn:hover {
+    background-color: #27ae60;
+}
+
+#basket-container {
+    position: fixed;
+    /* Keeps it in place when scrolling */
+    top: 20px;
+    /* 20px from the top */
+    right: 20px;
+    /* 20px from the right */
+    background: #2c3e50;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 50px;
+    /* Makes it a pill shape */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    z-index: 1000;
+    /* Ensures it stays on top of images */
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-family: sans-serif;
+    /* Keeps the numbers easy to read */
+}
+
+/* Ensure the body doesn't need that massive top padding anymore */
+body {
+    font-family: cursive;
+    text-align: center;
+    background-color: #1a1a1acc;
+    color: white;
+    margin: 0;
+    padding-top: 40px;
+}
+
+#basket-count {
+    color: #2ecc71;
+    font-size: 1.3em;
+}
+
+#total-price {
+    color: #f1c40f;
+    font-size: 1.3em;
+}
+
+#clear-btn {
+    background: #e74c3c;
+    border: none;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+}
