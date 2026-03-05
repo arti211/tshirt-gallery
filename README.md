@@ -2,10 +2,6 @@
 
 A fully responsive, interactive T-shirt gallery built to demonstrate **DOM manipulation**, **state management**, and **Clean Code** principles.
 
-## 🚀 Live Demo
-
-[View the Live Project Here](https://yourusername.github.io)
-
 ## 🛠️ Tech Stack
 
 - **Frontend:** HTML5, CSS3 (Flexbox & Fixed Positioning)
