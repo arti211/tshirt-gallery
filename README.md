@@ -7,7 +7,7 @@ A fully responsive, interactive T-shirt gallery built to demonstrate **DOM manip
 - **Frontend:** HTML5, CSS3 (Flexbox & Fixed Positioning)
 - **Logic:** Vanilla JavaScript (ES6+)
 - **Version Control:** Git & GitHub
-- **Hosting:** S3 bucket
+- **Hosting:** S3 bucket in AWS
 
 ## ✨ Key Features
 
